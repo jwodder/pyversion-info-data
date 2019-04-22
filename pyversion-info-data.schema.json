@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "required": [
+        "version_release_dates",
+        "series_eol_dates"
+    ],
+    "definitions": {
+        "date": {
+            "type": "string",
+            "pattern": "^[0-9][0-9][0-9][0-9]-(0[1-9]|1[12])-(0[1-9]|[12][0-9]|3[01])$"
+        }
+    },
+    "properties": {
+        "version_release_dates": {
+            "type": "object",
+            "description": "A mapping from micro Python versions in the form \"X.Y.Z\" to the dates on which they were released.",
+            "patternProperties": {
+                "^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$": {
+                    "$ref": "#/definitions/date"
+                }
+            },
+            "additionalProperties": false
+        },
+        "series_eol_dates": {
+            "type": "object",
+            "description": "A mapping from minor Python versions in the form \"X.Y\" to the dates on which they reached end-of-life.  A value of `true` means that the series is currently EOL but the actual EOL date is unknown.",
+            "patternProperties": {
+                "^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$": {
+                    "oneOf": [
+                        {"enum": [true]},
+                        {"$ref": "#/definitions/date"}
+                    ]
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

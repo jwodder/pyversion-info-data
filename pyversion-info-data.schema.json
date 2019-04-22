@@ -16,7 +16,7 @@
             "type": "object",
             "description": "A mapping from micro Python versions in the form \"X.Y.Z\" to the dates on which they were released.",
             "patternProperties": {
-                "^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$": {
+                "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$": {
                     "$ref": "#/definitions/date"
                 }
             },
@@ -26,7 +26,7 @@
             "type": "object",
             "description": "A mapping from minor Python versions in the form \"X.Y\" to the dates on which they reached end-of-life.  A value of `null` means that no end-of-life date has been determined yet.  A value of `true` means that the series is currently EOL but the actual EOL date is unknown.",
             "patternProperties": {
-                "^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$": {
+                "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$": {
                     "oneOf": [
                         {"enum": [null, true]},
                         {"$ref": "#/definitions/date"}

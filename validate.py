@@ -9,7 +9,7 @@ from   collections import defaultdict
 from   datetime    import date, datetime
 import json
 import click
-from   jsonschema  import validate
+from   jsonschema  import draft7_format_checker, validate
 
 @click.command()
 @click.argument('data_file', type=click.File())
@@ -24,7 +24,7 @@ def main(data_file, schema_file):
         schema = json.load(schema_file)
 
     # Check that data conforms to schema
-    validate(data, schema)
+    validate(data, schema, format_checker=draft7_format_checker)
 
     versions = [
         (parse_version(v), parse_date(d))

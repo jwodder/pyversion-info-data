@@ -93,11 +93,13 @@ def main(data_file, schema_file):
         assert_chrono_order(releases, f'Micro releases of {series}')
 
     # Check that no micro versions are released after a series goes EOL
-    for series, eol_date in data["series_eol_dates"].items():
-        if isinstance(eol_date, date):
-            for v, rel in get_micro_versions(versions, parse_version(series)):
-                assert rel is None or rel <= eol_date, \
-                    f'Version {unparse_version(v)} released after series EOL'
+    # (Apparently, this can legitimately happen; see v3.0.
+    #for series, eol_date in data["series_eol_dates"].items():
+    #    if isinstance(eol_date, str):
+    #        eol_date = parse_date(eol_date)
+    #        for v, rel in get_micro_versions(versions, parse_version(series)):
+    #            assert rel is None or rel <= eol_date, \
+    #                f'Version {unparse_version(v)} released after series EOL'
 
 def get_micro_versions(versions, series):
     """

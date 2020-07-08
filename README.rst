@@ -3,8 +3,8 @@
     :alt: Project Status: Active — The project has reached a stable, usable
           state and is being actively developed.
 
-.. image:: https://travis-ci.org/jwodder/pyversion-info-data.svg?branch=master
-    :target: https://travis-ci.org/jwodder/pyversion-info-data
+.. image:: https://travis-ci.com/jwodder/pyversion-info-data.svg?branch=master
+    :target: https://travis-ci.com/jwodder/pyversion-info-data
 
 .. image:: https://img.shields.io/github/license/jwodder/pyversion-info-data.svg
     :target: http://unlicense.org

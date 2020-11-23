@@ -1,8 +1,0 @@
-language: python
-cache: pip
-python:
-    - '3.6'
-install:
-    - pip install pip-run
-script:
-    - pip-run -q -- validate.py pyversion-info-data.json pyversion-info-data.schema.json

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 __python_requires__ = "~= 3.7"
 __requires__ = ["click >= 7.0", "packaging"]
-from datetime import date
+from datetime import date, datetime, timezone
 import json
 import re
 from typing import Any, Dict
@@ -55,6 +55,7 @@ def cpython_release(version, reldate):
     with open(DATA_V1) as fp:
         data = json.load(fp)
     set_version_datum(data, ["cpython", "release_dates"], version, reldate)
+    data["last_modified"] = nowstamp()
     with open(DATA_V1, "w") as fp:
         print(json.dumps(data, indent=4), file=fp)
 
@@ -73,6 +74,7 @@ def eol(version, eoldate):
     with open(DATA_V1) as fp:
         data = json.load(fp)
     set_version_datum(data, ["cpython", "eol_dates"], version, eoldate)
+    data["last_modified"] = nowstamp()
     with open(DATA_V1, "w") as fp:
         print(json.dumps(data, indent=4), file=fp)
 
@@ -95,6 +97,7 @@ def pypy_release(version, reldate, cpythons):
     set_version_datum(
         data, ["pypy", "cpython_versions"], version, sorted(cpythons, key=Version)
     )
+    data["last_modified"] = nowstamp()
     with open(DATA_V1, "w") as fp:
         print(json.dumps(data, indent=4), file=fp)
 
@@ -108,6 +111,9 @@ def set_version_datum(data, path, version, datum):
 
 def sort_version_dict(vdict: Dict[str, Any]) -> Dict[str, Any]:
     return {v: vdict[v] for v in sorted(vdict, key=Version)}
+
+def nowstamp():
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
 if __name__ == "__main__":

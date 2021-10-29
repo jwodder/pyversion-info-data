@@ -1,0 +1,89 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "last_modified",
+        "cpython",
+        "pypy"
+    ],
+    "properties": {
+        "last_modified": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "cpython": {
+            "type": "object",
+            "required": [
+                "release_dates",
+                "eol_dates"
+            ],
+            "properties": {
+                "release_dates": {
+                    "type": "object",
+                    "description": "A mapping from micro Python versions in the form \"X.Y.Z\" to the dates on which they were released.  A value of `true` means that the version has been released but its release date is unknown.  A value of `false` means that the version has been announced but not released and its release date is unknown.",
+                    "patternProperties": {
+                        "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$": {
+                            "type": [
+                                "boolean",
+                                "string"
+                            ],
+                            "format": "date"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "eol_dates": {
+                    "type": "object",
+                    "description": "A mapping from minor Python versions in the form \"X.Y\" to the dates on which they reached end-of-life.  A value of `false` means that the series is not currently end-of-life and no end-of-life date has been determined yet.  A value of `true` means that the series is currently EOL but the actual EOL date is unknown.",
+                    "patternProperties": {
+                        "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$": {
+                            "type": [
+                                "boolean",
+                                "string"
+                            ],
+                            "format": "date"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            }
+        },
+        "pypy": {
+            "type": "object",
+            "required": [
+                "release_dates",
+                "cpython_versions"
+            ],
+            "properties": {
+                "release_dates": {
+                    "type": "object",
+                    "description": "A mapping from micro PyPy versions in the form \"X.Y.Z\" to the dates on which they were released.  A value of `true` means that the version has been released but its release date is unknown.  A value of `false` means that the version has not been announced but not released and its release date is unknown.",
+                    "patternProperties": {
+                        "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$": {
+                            "type": [
+                                "boolean",
+                                "string"
+                            ],
+                            "format": "date"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "cpython_versions": {
+                    "type": "object",
+                    "description": "A mapping from micro PyPy versions in the form \"X.Y.Z\" to lists of the CPython micro versions (in the form \"X.Y.Z\") that each PyPy version supports",
+                    "patternProperties": {
+                        "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            }
+        }
+    }
+}

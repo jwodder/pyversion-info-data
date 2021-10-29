@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Perform various validations and sanity checks on the pyversion databases"""
-__python_requires__ = "~= 3.6"
+__python_requires__ = "~= 3.7"
 __requires__ = ["jsonschema[format] ~= 4.0"]
 from bisect import bisect_left
 from datetime import date, datetime

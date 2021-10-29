@@ -11,9 +11,6 @@
     :target: http://unlicense.org
     :alt: Unlicense
 
-.. image:: https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg
-    :target: https://saythanks.io/to/jwodder
-
 This repository contains a JSON file listing every Python version (excluding
 prereleases), their release dates, and the end-of-life dates of version series.
 It is queried by the `pyversion-info

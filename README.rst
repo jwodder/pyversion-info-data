@@ -11,11 +11,35 @@
     :target: http://unlicense.org
     :alt: Unlicense
 
-This repository contains a JSON file listing every Python version (excluding
-prereleases), their release dates, and the end-of-life dates of version series.
-It is queried by the `pyversion-info
-<https://pypi.org/project/pyversion-info/>`_ Python library in order to provide
-up-to-date information about supported & historic Python versions.
+This repository contains the databases of CPython and PyPy version information
+queried by the `pyversion-info <https://pypi.org/project/pyversion-info/>`_
+Python library in order to provide up-to-date information about supported &
+historic Python versions — namely, what versions exist/have been announced,
+when they were or will be released, CPython series end-of-life dates, and
+CPython versions corresponding to each PyPy release.
 
 I promise 24-hour turnaround times for keeping the database up-to-date until I
 am hit by a bus.
+
+Files
+=====
+
+``pyversion-info-data.json``
+    The database used by v0.x of ``pyversion-info``, containing only
+    information on CPython releases.
+
+``pyversion-info-data.schema.json``
+    The JSON Schema for ``pyversion-info-data.json``
+
+``pyversion-info-data.v1.json``
+    The database used by v1.x of ``pyversion-info``, containing information on
+    both CPython and PyPY
+
+``pyversion-info-data.v1.schema.json``
+    The JSON Schema for ``pyversion-info-data.v1.json``
+
+``manage.py``
+    A utility script for updating the databases
+
+``validate.py``
+    A script for validating and sanity-checking the databases

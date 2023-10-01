@@ -8,8 +8,8 @@
     :alt: CI Status
 
 .. image:: https://img.shields.io/github/license/jwodder/pyversion-info-data.svg
-    :target: http://unlicense.org
-    :alt: Unlicense
+    :target: https://creativecommons.org/publicdomain/zero/1.0/
+    :alt: Creative Commons Zero v1.0 Universal
 
 This repository contains the databases of CPython and PyPy version information
 queried by the `pyversion-info <https://pypi.org/project/pyversion-info/>`_

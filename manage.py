@@ -29,7 +29,7 @@ def date_arg(s):
     return s
 
 
-@click.group()
+@click.group(context_settings={"help_option_names": ["-h", "--help"]})
 def main():
     """Update the pyversion info databases"""
     pass

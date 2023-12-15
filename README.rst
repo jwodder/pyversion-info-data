@@ -12,11 +12,12 @@
     :alt: Creative Commons Zero v1.0 Universal
 
 This repository contains the databases of CPython and PyPy version information
-queried by the `pyversion-info <https://pypi.org/project/pyversion-info/>`_
-Python library in order to provide up-to-date information about supported &
-historic Python versions — namely, what versions exist/have been announced,
-when they were or will be released, CPython series end-of-life dates, and
-CPython versions corresponding to each PyPy release.
+that are queried by the `pyversion-info
+<https://pypi.org/project/pyversion-info/>`_ Python library in order to provide
+up-to-date information about supported & historic Python versions — namely,
+what versions exist/have been announced, when they were or will be released,
+CPython series end-of-life dates, and CPython versions corresponding to each
+PyPy release.
 
 I promise 24-hour turnaround times for keeping the database up-to-date until I
 am hit by a bus.
@@ -33,7 +34,7 @@ Files
 
 ``pyversion-info-data.v1.json``
     The database used by v1.x of ``pyversion-info``, containing information on
-    both CPython and PyPY
+    both CPython and PyPy
 
 ``pyversion-info-data.v1.schema.json``
     The JSON Schema for ``pyversion-info-data.v1.json``
